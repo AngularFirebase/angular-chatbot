@@ -6,11 +6,13 @@ import { ChatService } from './chat.service';
 
 import { FormsModule } from '@angular/forms';
 
+import { MaterialModule } from '../core/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MaterialModule,
   ],
   declarations: [
     ChatDialogComponent

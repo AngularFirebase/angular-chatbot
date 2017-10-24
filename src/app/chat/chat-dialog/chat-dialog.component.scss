@@ -1,23 +1,54 @@
-.message {
-    border-radius: 50px;
-    margin: 0 15px 10px;
-    padding: 15px 20px;
-    position: relative;
-    font-weight: bold;
+.toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    font-weight: 300;
 }
-.message.to {
-    background-color: #2095FE;
-    color: #fff;
-    margin-left: 100px;
-    text-align: right;
-}
-.message.from {
-    background-color: #E5E4E9;
-    color: #363636;
-    margin-right: 100px;
 
+.messenger {
+    overflow: auto;
+    margin-top: 64px;
 }
-.message.to + .message.to,
-.message.from + .message.from {
-margin-top: -10px;
+
+.message-row {
+    padding: 0 16px;
+    margin: 8px;
+}
+.message {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 16px;
+    font-weight: 500;
+}
+.message-row.to {
+    text-align: right;
+    .message {
+        background-color: #2095FE;
+        color: #fff;
+    }
+}
+.message-row.from {
+    text-align: left;
+    .message {
+        background-color: #E5E4E9;
+        color: #363636;
+    }
+}
+.message-row.to + .message-row.to,
+.message-row.from + .message-row.from {
+    margin-top: -10px;
+}
+
+.send-message {
+    height: 64px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    padding: 0 16px;
+    background-color: #fafafa;
+}
+
+::ng-deep .send-message .mat-input-underline {
+    display: none!important;
 }
