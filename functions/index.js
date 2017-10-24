@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 
-const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
+// const admin = require('firebase-admin');
+// admin.initializeApp(functions.config().firebase);
 
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => {
@@ -20,21 +20,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => 
     const requestSource = (req.body.originalRequest) ? req.body.originalRequest.source : undefined;
     
 
-    // Firestore database
-    const db = admin.firestore()
-
-
     const actionHandlers = {
 
-        'phone.update': () => { 
-            const userRef = db.collection('users').doc('test-user');
-            const phoneNumber = parameters['phone-number'];
-
-            userRef.update({ phone: phoneNumber }).then(() => {
-
-                const data = formatResponse('No problem. Phone number is updated in Firestore!')
-                res.json(data)
-            })
+        'learn.component': () => { 
+            // todo
 
         },
         'default': () => {
