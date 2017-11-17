@@ -6,7 +6,10 @@ import { ApiAiClient } from 'api-ai-javascript';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
 export class Message {
+  myRenderer;
+
   constructor(public content: string, public sentBy: string) {}
 }
 
@@ -39,6 +42,5 @@ export class ChatService {
   update(msg: Message) {
     this.conversation.next([msg]);
   }
-
 
 }
