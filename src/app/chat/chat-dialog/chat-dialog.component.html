@@ -1,25 +1,31 @@
-<mat-toolbar color="primary" class="toolbar mat-elevation-z3">
-  <mat-icon>chat</mat-icon> &nbsp; Angular Chatbot
-</mat-toolbar>
+<div class="wrapper">
+  <div class="dialog">
 
-<div class="messages">
+    <mat-toolbar color="primary" class="toolbar mat-elevation-z3">
+      <img src="assets/logo.png" width="50px"> Angular Chatbot
+    </mat-toolbar>
 
-  <ng-container *ngFor="let message of messages | async">
+    <div class="messages">
 
-    <div class="message-row" [ngClass]="{ 'from': message.sentBy === 'bot',
-                                          'to':   message.sentBy === 'user' }">
-      <div class="message">
-        {{ message.content }}
-      </div>
+      <ng-container *ngFor="let message of messages | async">
+
+        <div class="message-row" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                              'to':   message.sentBy === 'user' }">
+          <div class="message">
+            <span [innerHtml]="message.content | mdToHtml"></span>
+          </div>
+        </div>
+
+      </ng-container>
+
     </div>
 
-  </ng-container>
+    <div class="send-message" (click)="messageInput.click()">
+      <mat-form-field floatPlaceholder="never">
+        <input matInput #messageInput [(ngModel)]="formValue" (keyup.enter)="sendMessage()" 
+          placeholder="Ask me about Angular..." autofocus autocomplete="off">
+      </mat-form-field>
+    </div>
 
-</div>
-
-<div class="send-message" (click)="messageInput.click()">
-  <mat-form-field floatPlaceholder="never">
-    <input matInput #messageInput [(ngModel)]="formValue" (keyup.enter)="sendMessage()" 
-      placeholder="Type a message..." autofocus autocomplete="off">
-  </mat-form-field>
+  </div>
 </div>

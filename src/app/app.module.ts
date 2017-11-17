@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { MaterialModule } from './core/material.module';
 import { ChatModule } from './chat/chat.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ChatModule } from './chat/chat.module';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ChatModule
+    ChatModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

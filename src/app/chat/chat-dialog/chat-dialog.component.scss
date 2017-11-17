@@ -1,13 +1,24 @@
+.wrapper {
+    margin: 2vh 15vw;
+    border: 1px solid #ccc;
+    box-shadow: 10px 10px 40px -10px rgba(0, 0, 0, 0.50);
+}
+
+
+
 .toolbar {
-    position: fixed;
+    position: relative;
     top: 0;
     z-index: 10;
     font-weight: 300;
+    background: #2b303e;
 }
 
 .messages {
     overflow: auto;
-    margin: 64px 0;
+    padding: 64px 0;
+    height: 60vh;
+    overflow-y: scroll;
 }
 
 .message-row {
@@ -18,7 +29,7 @@
     display: inline-block;
     border-radius: 6px;
     padding: 16px;
-    font-weight: 500;
+    font-weight: 300;
 }
 .message-row.to {
     text-align: right;
@@ -41,9 +52,8 @@
 
 .send-message {
     height: 64px;
-    width: 100%;
     border-top: 1px solid #ccc;
-    position: fixed;
+    position: relative;
     bottom: 0;
     padding: 0 16px;
     background-color: #fafafa;
@@ -51,4 +61,20 @@
 
 ::ng-deep .send-message .mat-input-underline {
     display: none!important;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
 }
